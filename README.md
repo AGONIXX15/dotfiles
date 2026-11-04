@@ -15,7 +15,7 @@ kitty/ swaync/ fastfetch/ gsimplecal/ cava/ btop/ nvim/
 matugen/    config y plantillas que generan los colores
 gtk/        settings.ini de gtk-3.0 y gtk-4.0
 zsh/  starship/  git/
-packages/   pacman.txt (oficiales) y aur.txt
+packages/   pacman.txt, aur.txt (base), extra.txt, aur-extra.txt (apps pesadas), hardware.txt (esta máquina)
 wallpapers/ wallpapers.txt (tema|url) y download.sh
 install.sh
 ```
@@ -28,12 +28,24 @@ Los archivos generados (colores de matugen, `current_wall`, wallpapers descargad
 git clone https://github.com/AGONIXX15/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh --dry-run   # muestra lo que haría
-./install.sh
+./install.sh             # instalación completa
 ```
 
-`install.sh` es idempotente: instala yay si falta, instala los paquetes, respalda las configs que choquen
-(en `~/.dotfiles-backup-<fecha>`), enlaza todo con stow, activa NetworkManager y bluetooth, cambia el shell a zsh,
-descarga los wallpapers, genera las miniaturas y aplica el primero (lo que genera los colores).
+Opciones:
+
+| Flag | Efecto |
+|---|---|
+| `--dry-run` | no cambia nada, solo muestra los pasos |
+| `--minimal` | omite `packages/extra.txt` y `packages/aur-extra.txt` (apps pesadas: wine, texlive, steam, IDEs...) |
+| `--hardware` | instala también `packages/hardware.txt` (nvidia, intel, grub, kernel y firmware; solo para esta máquina) |
+
+`install.sh` es idempotente. En orden: instala `git` y `base-devel`, activa `[multilib]` y sincroniza pacman, instala los paquetes
+oficiales, instala yay y los paquetes AUR, respalda las configs que choquen (en `~/.dotfiles-backup-<fecha>`), enlaza todo con stow,
+activa NetworkManager, bluetooth y sddm (si no hay otro gestor de login), cambia el shell a zsh, descarga los wallpapers, genera las
+miniaturas y los colores con matugen.
+
+Primer inicio de sesión: si ejecutaste el instalador desde un TTY, awww no está disponible todavía. El script solo genera los colores y
+guarda el wallpaper inicial; Hyprland lo aplica al arrancar. Inicia sesión en Hyprland desde sddm o con `Hyprland` en el TTY.
 
 ## Agregar una config nueva
 
