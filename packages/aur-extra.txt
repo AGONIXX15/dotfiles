@@ -1,0 +1,7 @@
+cheese
+hollywood
+intellij-idea-ultimate-edition
+onlyoffice-bin
+postman-bin
+spotify
+unityhub
