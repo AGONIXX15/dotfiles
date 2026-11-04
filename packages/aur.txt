@@ -1,0 +1,17 @@
+bibata-cursor-theme-bin
+brave-bin
+cheese
+hollywood
+hyprmon-bin
+intellij-idea-ultimate-edition
+onlyoffice-bin
+packettracer
+papirus-folders
+postman-bin
+pyprland
+spicetify-cli
+spotify
+unityhub
+waypaper
+wifi-manager-git
+yay
