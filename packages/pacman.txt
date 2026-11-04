@@ -9,6 +9,7 @@ bluez-utils
 brightnessctl
 btop
 cava
+clang
 cliphist
 cmake
 code
@@ -36,6 +37,7 @@ hyprsunset
 imagemagick
 inxi
 kitty
+lazygit
 libnotify
 man-db
 man-pages
@@ -46,8 +48,8 @@ nano
 nasm
 ncdu
 neovim
-network-manager-applet
 networkmanager
+network-manager-applet
 nmap
 noto-fonts-emoji
 npm
