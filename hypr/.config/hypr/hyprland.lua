@@ -21,7 +21,8 @@ local browser     = "brave"
 -------------------
 hl.on("hyprland.start", function()
     hl.exec_cmd("awww-daemon")
-    hl.exec_cmd("sh -c 'sleep 1; awww restore'")
+    -- awww restore falla en el primer arranque (sin caché): aplica current_wall o el primer wallpaper de nature
+    hl.exec_cmd("sh -c 'sleep 1; awww restore || ~/.config/hypr/scripts/set_wallpaper.sh \"$(cat ~/.config/hypr/themes/$(cat ~/.config/hypr/themes/current)/current_wall 2>/dev/null || ls ~/.config/hypr/themes/nature/wallpapers/* | head -1)\"'")
     hl.exec_cmd("waybar")
     hl.exec_cmd("swaync")
     hl.exec_cmd("swayosd-server")

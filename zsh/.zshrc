@@ -38,7 +38,7 @@ zinit snippet OMZP::sudo   # double ESC to repeat last command with sudo
 zinit snippet OMZP::git
 alias ls='eza --icons always'
 
-export PATH="/home/agox/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/flutter/bin:$PATH"
 export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$PATH:$HOME/.ghcup/bin/"
