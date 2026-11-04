@@ -1,6 +1,6 @@
 #!/bin/bash
 # Uso: set_wallpaper.sh [imagen]   aplica esa imagen
-#      set_wallpaper.sh            selector rofi (Alt+r aleatorio, Alt+←/→ categoría, Alt+a todas)
+#      set_wallpaper.sh            selector rofi (Alt+r random, Alt+←/→ category, Alt+a all)
 #      set_wallpaper.sh --thumbs   (re)genera miniaturas de todos los temas
 
 BASE="$HOME/.config/hypr/themes"
@@ -44,15 +44,16 @@ else
 
         # barra de categorías (pango); la activa en color primary
         MESG=""
-        for t in "${THEMES[@]}" todas; do
-            if { [ $ALL -eq 0 ] && [ "$t" = "$THEME" ]; } || { [ $ALL -eq 1 ] && [ "$t" = todas ]; }; then
+        for t in "${THEMES[@]}" all; do
+            if { [ $ALL -eq 0 ] && [ "$t" = "$THEME" ]; } || { [ $ALL -eq 1 ] && [ "$t" = all ]; }; then
                 MESG+="<span foreground='$PRIMARY' weight='bold'>[$t]</span>   "
             else MESG+="$t   "; fi
         done
+        MESG+=$'\n'"<span size='small' alpha='60%'>Alt+← → category  ·  Alt+A all  ·  Alt+R random  ·  type to search</span>"
 
         SELECTED=$(printf '%s\n' "${!MAP[@]}" | sort | while IFS= read -r n; do
             printf '%s\0icon\x1f%s\n' "$n" "$(thumb_of "${MAP[$n]}")"
-        done | rofi -dmenu -show-icons -p "󰸉  $([ $ALL -eq 1 ] && echo todas || echo "$THEME")" -mesg "$MESG" \
+        done | rofi -dmenu -show-icons -p "󰸉  $([ $ALL -eq 1 ] && echo all || echo "$THEME")" -mesg "$MESG" \
             -kb-custom-1 "Alt+r" -kb-custom-2 "Alt+Right" -kb-custom-3 "Alt+Left" -kb-custom-4 "Alt+a" \
             -theme ~/.config/rofi/wallpaper.rasi)
         rc=$?

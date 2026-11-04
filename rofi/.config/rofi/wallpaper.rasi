@@ -26,7 +26,7 @@ inputbar {
     horizontal-align: 0.5;
 }
 prompt { background-color: transparent; text-color: @selected; }
-entry { background-color: transparent; text-color: @foreground; placeholder: "buscar..."; placeholder-color: @foreground; }
+entry { background-color: transparent; text-color: @foreground; placeholder: "search..."; placeholder-color: @foreground; }
 listview {
     layout: vertical;
     flow: horizontal;
