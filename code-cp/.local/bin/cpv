@@ -1,0 +1,4 @@
+#!/bin/bash
+# VS Code (Code - OSS) aislado, sin Vim, para practicar competitiva. Sin argumentos abre ~/cp.
+mkdir -p "$HOME/cp"
+exec code --user-data-dir "$HOME/.config/code-cp" --extensions-dir "$HOME/.local/share/code-cp/extensions" "${@:-$HOME/cp}"

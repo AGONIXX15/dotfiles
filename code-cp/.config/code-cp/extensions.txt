@@ -1,0 +1,2 @@
+DivyanshuAgrawal.competitive-programming-helper
+llvm-vs-code-extensions.vscode-clangd

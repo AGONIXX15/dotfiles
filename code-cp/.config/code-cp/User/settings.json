@@ -1,0 +1,19 @@
+{
+  "workbench.colorTheme": "Default Dark Modern",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+  "editor.fontSize": 15,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "telemetry.telemetryLevel": "off",
+  "update.mode": "none",
+  "extensions.autoUpdate": false,
+  "workbench.startupEditor": "none",
+  "files.associations": { "*.cpp": "cpp", "*.h": "cpp", "*.hpp": "cpp", "input.txt": "plaintext" },
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "clangd.arguments": ["--background-index", "--header-insertion=never", "--fallback-style=Google"],
+  "C_Cpp.intelliSenseEngine": "disabled"
+}
