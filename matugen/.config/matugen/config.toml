@@ -1,0 +1,63 @@
+[config]
+reload_apps = false
+
+[templates.hypr]
+input_path = '~/.config/matugen/templates/colors.lua'
+output_path = '~/.config/hypr/colors.lua'
+post_hook = 'hyprctl reload config-only'
+
+[templates.hyprlock]
+input_path = '~/.config/matugen/templates/hyprlock-colors.conf'
+output_path = '~/.config/hypr/hyprlock-colors.conf'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.swaync]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/swaync/colors.css'
+post_hook = 'swaync-client -rs'
+
+[templates.swayosd]
+input_path = '~/.config/matugen/templates/swayosd.css'
+output_path = '~/.config/swayosd/style.css'
+post_hook = "setsid -f sh -c 'pkill swayosd-server; exec swayosd-server' >/dev/null 2>&1"
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/matugen.rasi'
+output_path = '~/.config/rofi/colors/matugen.rasi'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+
+[templates.nvim]
+input_path = '~/.config/matugen/templates/matugen_palette.lua'
+output_path = '~/.config/nvim/lua/matugen_palette.lua'
+
+[templates.papirus]
+input_path = '~/.config/matugen/templates/primary.txt'
+output_path = '~/.cache/primary.txt'
+post_hook = "setsid -f sh -c '~/.config/hypr/scripts/papirus_folder.sh $(cat ~/.cache/primary.txt)' >/dev/null 2>&1"
+
+# Spotify/spicetify: INACTIVO (/opt/spotify no es escribible). Para activar, descomenta tras
+# `sudo chmod a+wr /opt/spotify -R` + `spicetify backup apply`, y pon current_theme = matugen.
+# [templates.spicetify]
+# input_path = '~/.config/matugen/templates/spotify-color.ini'
+# output_path = '~/.config/spicetify/Themes/matugen/color.ini'
+# post_hook = "setsid -f sh -c 'spicetify apply -q' >/dev/null 2>&1"

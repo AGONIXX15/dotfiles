@@ -1,0 +1,24 @@
+@import "~/.config/rofi/colors/matugen.rasi"
+
+* { font: "JetBrainsMono Nerd Font 12"; }
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    width: 460px;
+    border: 1px;
+    border-color: @selected;
+    border-radius: 20px;
+    background-color: @background;
+}
+mainbox { padding: 20px; spacing: 14px; background-color: transparent; children: [ "message", "inputbar", "listview" ]; }
+message { background-color: transparent; border: 0; padding: 0; }
+textbox { background-color: transparent; border: 0; text-color: @selected; horizontal-align: 0.5; }
+inputbar { padding: 8px 16px; spacing: 10px; border-radius: 999px; background-color: @background-alt; text-color: @foreground; children: [ "prompt", "entry" ]; }
+prompt { background-color: transparent; text-color: @selected; }
+entry { background-color: transparent; text-color: @foreground; placeholder: "buscar..."; placeholder-color: @foreground; }
+listview { lines: 8; columns: 1; spacing: 6px; scrollbar: false; fixed-height: false; background-color: transparent; }
+element { children: [ "element-text" ]; padding: 10px 14px; border: 0; border-radius: 14px; background-color: transparent; text-color: @foreground; }
+element-text { background-color: transparent; text-color: inherit; }
+element selected.normal { background-color: @selected-soft; text-color: @foreground; }

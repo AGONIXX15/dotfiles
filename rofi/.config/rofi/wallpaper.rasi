@@ -1,0 +1,53 @@
+@import "~/.config/rofi/colors/matugen.rasi"
+
+configuration { show-icons: true; }
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    width: 90%;
+    border: 1px;
+    border-color: @selected;
+    border-radius: 20px;
+    background-color: @background;
+}
+mainbox { padding: 20px; spacing: 16px; background-color: transparent; children: [ "message", "inputbar", "listview" ]; }
+message { background-color: transparent; border: 0; padding: 0; }
+textbox { background-color: transparent; border: 0; text-color: @foreground; horizontal-align: 0.5; markup: true; }
+inputbar {
+    padding: 8px 18px;
+    spacing: 10px;
+    border-radius: 999px;
+    background-color: @background-alt;
+    text-color: @foreground;
+    children: [ "prompt", "entry" ];
+    width: 320px;
+    horizontal-align: 0.5;
+}
+prompt { background-color: transparent; text-color: @selected; }
+entry { background-color: transparent; text-color: @foreground; placeholder: "buscar..."; placeholder-color: @foreground; }
+listview {
+    layout: vertical;
+    flow: horizontal;
+    columns: 7;
+    lines: 1;
+    spacing: 14px;
+    fixed-columns: true;
+    scrollbar: false;
+    cycle: false;
+    background-color: transparent;
+}
+element {
+    orientation: vertical;
+    padding: 8px;
+    border: 3px;
+    border-color: transparent;
+    border-radius: 16px;
+    background-color: transparent;
+    expand: false;
+}
+element normal.normal { background-color: transparent; }
+element selected.normal { background-color: @selected-soft; border-color: @selected; }
+element-icon { size: 300px; border-radius: 12px; background-color: transparent; }
+element-text { enabled: false; }

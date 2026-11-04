@@ -1,0 +1,83 @@
+@import "colors.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: alpha(@surface, 0.45);
+    border: 1px solid alpha(@outline, 0.6);
+    border-radius: 14px;
+    color: @on_surface;
+}
+
+tooltip {
+    background: alpha(@surface, 0.9);
+    border: 1px solid @primary;
+    border-radius: 12px;
+}
+tooltip label { color: @on_surface; padding: 4px; }
+
+/* módulos como píldoras discretas */
+#custom-launcher, #clock, #window, #mpris, #network, #bluetooth,
+#pulseaudio, #backlight, #battery, #custom-notification {
+    padding: 0 12px;
+    margin: 5px 3px;
+    border-radius: 10px;
+    color: @on_surface;
+    background: transparent;
+    transition: background 200ms ease;
+}
+#custom-launcher:hover, #clock:hover, #mpris:hover, #network:hover, #bluetooth:hover,
+#pulseaudio:hover, #backlight:hover, #battery:hover, #custom-notification:hover {
+    background: alpha(@primary, 0.18);
+}
+
+#custom-launcher { color: @primary; font-size: 18px; margin: 5px 0 5px 6px; padding: 0 8px; }
+#clock { font-weight: bold; }
+#window { color: @on_surface_variant; }
+#network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-notification, #mpris { color: @primary; }
+#pulseaudio, #backlight, #battery { color: @on_surface; }
+
+/* workspaces: puntos, el activo es una píldora */
+#workspaces { margin: 5px 4px 5px 0; }
+#workspaces button {
+    padding: 0 4px;
+    margin: 4px 3px;
+    min-width: 8px;
+    font-size: 8px;
+    border-radius: 10px;
+    color: alpha(@on_surface, 0.7);
+    background: transparent;
+    transition: all 200ms ease;
+}
+#workspaces button.empty { color: alpha(@on_surface, 0.35); }
+#workspaces button.active {
+    min-width: 28px;
+    background: @primary;
+    color: @primary;
+}
+#workspaces button:hover { background: alpha(@primary, 0.3); }
+
+/* grupo derecho */
+#status {
+    margin: 5px 3px;
+    padding: 0 4px;
+    border-radius: 12px;
+    background: alpha(@surface_container, 0.6);
+}
+#status > * { margin: 0; }
+#clock { color: @primary; font-weight: bold; }
+
+#battery.charging { color: @tertiary; }
+#battery.warning:not(.charging) { color: @secondary; }
+#battery.critical:not(.charging) { color: @error; }
+#custom-notification { padding-right: 14px; }
+
+#custom-cava { color: @primary; padding: 0 8px; }

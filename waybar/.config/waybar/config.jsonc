@@ -1,0 +1,111 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 8,
+    "margin-left": 8,
+    "margin-right": 8,
+    "height": 38,
+    "spacing": 6,
+
+    "modules-left": ["custom/launcher", "hyprland/workspaces"],
+    "modules-center": ["clock", "hyprland/window"],
+    "modules-right": ["custom/cava", "mpris", "group/status", "custom/notification"],
+
+    "custom/launcher": {
+        "format": "󰣇",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/launchers/type-2/launcher.sh",
+        "on-click-right": "~/.config/hypr/scripts/set_wallpaper.sh"
+    },
+    "hyprland/workspaces": {
+        "format": "●",
+        "persistent-workspaces": { "*": 5 }
+    },
+    "group/status": {
+        "orientation": "inherit",
+        "modules": ["network", "bluetooth", "pulseaudio", "backlight", "battery"]
+    },
+    "clock": {
+        "format": "{:%a %d %b  ·  %I:%M %p}",
+        "tooltip": false,
+        "on-click": "pkill -x gsimplecal || gsimplecal",
+        "on-click-right": "~/.config/hypr/scripts/nightlight.sh",
+        "on-click-right": "pkill -x hyprsunset && hyprsunset -i || (pkill -x hyprsunset; setsid -f hyprsunset)"
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 40,
+        "separate-outputs": true
+    },
+    "custom/cava": {
+        "exec": "~/.config/hypr/scripts/cava_waybar.sh",
+        "format": "{}",
+        "tooltip": false
+    },
+    "mpris": {
+        "format": "{status_icon} {dynamic}",
+        "dynamic-order": ["artist", "title"],
+        "dynamic-len": 30,
+        "status-icons": { "playing": "󰎆", "paused": "󰏤" },
+        "ignored-players": ["firefox"]
+    },
+    "network": {
+        "format-wifi": "󰖩",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname} {ipaddr}",
+        "tooltip-format-disconnected": "Desconectado",
+        "on-click": "~/.config/rofi/scripts/wifi.sh",
+        "on-click-right": "kitty --class floating-tui -e nmtui"
+    },
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱 {num_connections}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "~/.config/rofi/scripts/bluetooth.sh",
+        "on-click-right": "kitty --class floating-tui -e bluetoothctl"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+        "scroll-step": 2,
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "󰃟 {percent}%",
+        "scroll-step": 5
+    },
+    "battery": {
+        "bat": "BAT1",
+        "interval": 10,
+        "states": { "warning": 25, "critical": 10 },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+    },
+    "custom/notification": {
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂚",
+            "none": "󰂜",
+            "dnd-notification": "󰂛",
+            "dnd-none": "󰪑",
+            "inhibited-notification": "󰂚",
+            "inhibited-none": "󰂜",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}

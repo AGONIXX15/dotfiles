@@ -1,0 +1,25 @@
+# respaldos
+*.bak
+*.default
+
+# generados por matugen
+**/hypr/colors.lua
+**/hypr/hyprlock-colors.conf
+**/waybar/colors.css
+**/rofi/colors/matugen.rasi
+**/kitty/colors.conf
+**/swaync/colors.css
+**/gtk-*/gtk.css
+**/swayosd/style.css
+**/btop/themes/matugen.theme
+**/nvim/lua/matugen_palette.lua
+
+# estado local
+**/themes/current
+**/current_wall
+
+# wallpapers descargados (se bajan con wallpapers/download.sh), salvo retro
+**/themes/*/wallpapers/
+!**/themes/retro/wallpapers/
+
+.cache/
