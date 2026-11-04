@@ -14,7 +14,7 @@ rofi/       launcher, selector de wallpaper, powermenu, menús de wifi y bluetoo
 kitty/ swaync/ fastfetch/ gsimplecal/ cava/ btop/ nvim/
 matugen/    config y plantillas que generan los colores
 gtk/        settings.ini de gtk-3.0 y gtk-4.0
-zsh/  starship/  git/
+zsh/  starship/  git/  code-cp/ (VS Code para competitiva, comando cpv)
 packages/   pacman.txt, aur.txt (base), extra.txt, aur-extra.txt (apps pesadas), hardware.txt (esta máquina)
 wallpapers/ wallpapers.txt (tema|url) y download.sh
 install.sh
@@ -57,6 +57,13 @@ stow --no-folding -t ~ nuevo
 
 Agrega el nombre del paquete a `PKGS` en `install.sh`. Usa siempre `--no-folding` para que los
 archivos generados o locales puedan convivir con los enlazados en la misma carpeta.
+
+## Modos
+
+- `nv`: desarrollo con Neovim (LazyVim con extras de TypeScript, Python, Java, Go, Rust, Dart, Docker, SQL y más; Mason instala los LSP).
+- `cpv`: VS Code (Code - OSS) en una instancia aparte, sin Vim, para practicar programación competitiva: en concursos tipo ICPC no hay Vim.
+  Usa Competitive Companion en el navegador para traer los casos de prueba, la extensión CPH para correrlos, `F5` para compilar y
+  ejecutar con `input.txt` si existe, y la plantilla en `~/.config/code-cp/template.cpp`. Abre `~/cp` por defecto.
 
 ## Atajos de teclado (SUPER = tecla Windows)
 

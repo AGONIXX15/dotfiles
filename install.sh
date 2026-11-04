@@ -15,7 +15,7 @@ for a in "$@"; do
     esac
 done
 
-PKGS=(hypr waybar rofi kitty swaync matugen fastfetch gsimplecal cava btop gtk nvim zsh starship git)
+PKGS=(hypr waybar rofi kitty swaync matugen fastfetch gsimplecal cava btop gtk nvim zsh starship git code-cp)
 BACKUP="$HOME/.dotfiles-backup-$(date +%F-%H%M)"
 THEMES="$HOME/.config/hypr/themes"
 DONE=(); FAILED=()
@@ -60,6 +60,14 @@ for p in "${PKGS[@]}"; do
     done < <(find "$p" -type f)
     run "stow $p" stow --no-folding -R -t "$HOME" "$p"
 done
+
+# 4b. extensiones de la instancia cpv (VS Code para competitiva); las que no existan en Open VSX se reportan
+if command -v code >/dev/null; then
+    while IFS= read -r ext; do
+        [ -z "$ext" ] && continue
+        run "extensión cpv: $ext" code --user-data-dir "$HOME/.config/code-cp" --extensions-dir "$HOME/.local/share/code-cp/extensions" --install-extension "$ext"
+    done < <(grep -v '^\s*\(#\|$\)' code-cp/.config/code-cp/extensions.txt)
+fi
 
 # 5. servicios y shell
 run "habilitar NetworkManager" sudo systemctl enable NetworkManager
